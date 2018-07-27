@@ -27,6 +27,11 @@ namespace eosio {
     * @param precision - precision of symbol
     * @param str - the string representation of the symbol
     */
+    /**
+    * 合法的SYMBOL是大写字母的组合，计算方法为：
+    * 从左往右每个字母的ascii值做低8bit值。
+    * 最后去掉尾巴精度
+    */
    static constexpr uint64_t string_to_symbol( uint8_t precision, const char* str ) {
       uint32_t len = 0;
       while( str[len] ) ++len;
@@ -50,6 +55,7 @@ namespace eosio {
     * @param precision - precision of symbol
     * @param str - the string representation of the symbol
     */
+    // String2Symble
    #define S(P,X) ::eosio::string_to_symbol(P,#X)
 
    /**
@@ -63,8 +69,11 @@ namespace eosio {
     * @param sym - symbol name of type symbol_name
     * @return true - if symbol is valid
     */
+    /**
+    * 就必须是连续的几个大写字母组合的才算有效的symble
+    */
    static constexpr bool is_valid_symbol( symbol_name sym ) {
-      sym >>= 8;
+      sym >>= 8; /// skip precision
       for( int i = 0; i < 7; ++i ) {
          char c = (char)(sym & 0xff);
          if( !('A' <= c && c <= 'Z')  ) return false;
@@ -101,6 +110,10 @@ namespace eosio {
     * \struct Stores information about a symbol
     *
     * @brief Stores information about a symbol
+    */
+    /**
+    * 本质是一个uint64的数，并用低8bit表示这种symble能表示的精度范围，比如4，
+    * 小数点后四位
     */
    struct symbol_type {
      /**

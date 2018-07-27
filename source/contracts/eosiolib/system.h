@@ -7,6 +7,9 @@
 
 extern "C" {
 
+
+// eos系统实现的一些可以直接用的函数
+
    /**
     * @defgroup systemapi System API
     * @ingroup contractdev
@@ -71,6 +74,7 @@ extern "C" {
    [[noreturn]] void  eosio_exit( int32_t code );
 
 
+// 两个获取时间的函数，一个是ms一个是s.
    /**
     *  Returns the time in microseconds from 1970 of the current block
     *  @brief Get time of the current block (i.e. the block including this action)

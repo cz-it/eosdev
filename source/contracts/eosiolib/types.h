@@ -19,6 +19,9 @@ extern "C" {
  *  @{
  */
 
+
+ // 一些基本类型的typedef
+
 /**
  * @brief Name of an account
  * @details Name of an account

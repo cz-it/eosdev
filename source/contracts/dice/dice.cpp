@@ -24,6 +24,7 @@ class dice : public eosio::contract {
    public:
       const uint32_t FIVE_MINUTES = 5*60;
 
+      // 这个可以参考固定下来
       dice(account_name self)
       :eosio::contract(self),
        offers(_self, _self),

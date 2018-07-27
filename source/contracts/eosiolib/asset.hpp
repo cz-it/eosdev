@@ -27,6 +27,8 @@ namespace eosio {
     * @brief Stores information for owner of asset
     */
 
+// 数量、符号
+    // 本质就是做了运算约束的带单位（sybmle）的数据类型
    struct asset {
       /**
        * The amount of the asset
@@ -40,6 +42,7 @@ namespace eosio {
        *
        * @brief The symbol name of the asset
        */
+       // 本质是uint64整形数
       symbol_type  symbol;
 
       /**
@@ -173,6 +176,7 @@ namespace eosio {
        * @post The amount of this asset is multiplied by a
        */
       asset& operator*=( int64_t a ) {
+        /// 做了结果越界判断
          eosio_assert( a == 0 || (amount * a) / a == amount, "multiplication overflow or underflow" );
          eosio_assert( -max_amount <= amount, "multiplication underflow" );
          eosio_assert( amount <= max_amount,  "multiplication overflow" );
@@ -216,6 +220,9 @@ namespace eosio {
        * @param a - The divisor for the asset's amount
        * @return asset - Reference to this asset
        * @post The amount of this asset is divided by a
+       */
+       /**
+       * 这里没有做除0检查
        */
       asset& operator/=( int64_t a ) {
          amount /= a;
