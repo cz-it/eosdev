@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Game Develop on Electro OS</title>
+
+		<meta name="description" content="A Share of Game Develop on EOS">
+		<meta name="author" content="CZ">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/css/theme/black.css" id="theme">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/reveal.js-3.7.0/css/print/pdf.css' : '../reveal/reveal.js-3.7.0/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="section_1">
+					<h1>Game Develop </h1> 
+					<h2>on Electro OS</h2>
+					<p>
+						<small>Created by <a href="https://www.jianshu.com/u/665decba58c9">CZ</a> with <a href="https://github.com/hakimel/reveal.js/graphs/contributors">reveal</a>
+						</small>
+						<br />
+						<small>2018-08-18</small>
+					</p>
+				</section>
+
+				<section id="section_2">
+					<h2>Agenda</h2>
+					<ul>
+						<li>Game Development</li>
+						<li>Contract DevEnv of EOS</li>
+						<li>Basic Consept of <a href="https://github.com/EOSIO/eos/tree/master/contracts/eosiolib">eoslib</a> </li>
+						<li>Contract Development Sample</li>
+					</ul>
+				</section>
+
+				<section id="section_3">
+					<section>
+						<h2>Game Development</h2>
+					</section>					
+					<section>
+						<p>1. The first recorded electronic game.</p>
+						<p> (before the history. 1948)</p>
+						<p>
+							<img src="./images/ttt_play.gif">
+						</p>
+						<p>
+							Tic-Tac-Toe 
+						</p>
+					</section>
+					<section>
+						<p>2. Arcade Game</p>
+						<p> (Game Room  1980)</p>
+						<p>
+							<img src="./images/pac_man.png">
+						</p>						
+						<p>Pac Man</p>
+					</section>
+					<section>
+						<p>3. Family Game</p>
+						<p> (Family Computer - FC 1990)</p>
+						<p>
+							<img src="./images/fc.jpg">
+						</p>						
+						<p>Street Fighter</p>
+					</section>
+					<section>
+						<h3>4. PSP/XBox</h3>
+						<h3>5. RTS/RPG/FPS</h3>
+						<h3>6. MMORPG/MOBA</h3>
+						<h3> ....</h3>
+					</section>
+					<section>
+						<h3>A EOS Contract Game Sample</h3>
+						<p> Alchemy Furnace of Pomelo</p>
+						<p>
+							<img src="./images/game_1947.png">
+						</p>						
+					</section>													
+				</section>
+
+				<section id="section_4">
+					<section>					
+						<h2>Contract DevEnv of EOS</h2>
+					</section>	
+				</section>
+
+				<section id="section_5">
+					<section>					
+						<h2>Basic Consept of <a href="https://github.com/EOSIO/eos/tree/master/contracts/eosiolib">eoslib</a></h2>
+					</section>	
+				</section>				
+
+				<section id="section_6">
+					<section>					
+						<h2>Contract Development Sample</h2>
+					</section>	
+				</section>
+
+				<section id="section_end"style="text-align: left;">
+					<h1>THE END</h1>
+					<h1>THANKS!</h1>
+					<p style="float:right;">
+						<span><a href="https://www.jianshu.com/u/665decba58c9">Blog</a></span> |
+						<span><a href="mailto:cz_eos@163.com">Mail</a></span>
+					</p>					
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../reveal/reveal.js-3.7.0/lib/js/head.min.js"></script>
+		<script src="../reveal/reveal.js-3.7.0/js/reveal.js"></script>
+		<script src="js/index.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal/reveal.js-3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/search/search.js', async: true },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
