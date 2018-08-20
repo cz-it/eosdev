@@ -6,7 +6,7 @@ namespace eosio {
 
    class testinline : public contract {
       public:
-         testinline( action_name self ):contract(self){}
+         testinline( action_name self ):contract(self){}  //这个照抄就可以了
 
          void reqauth( account_name from ) {
             require_auth( from );
