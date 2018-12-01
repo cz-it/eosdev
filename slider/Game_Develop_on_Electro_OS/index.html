@@ -38,17 +38,19 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+<!-- section_1 -->				
 				<section id="section_1">
 					<h1>Game Develop </h1> 
-					<h2>on Electro OS</h2>
+					<h2>on EOSIO</h2>
 					<p>
 						<small>Created by <a href="https://www.jianshu.com/u/665decba58c9">CZ</a> with <a href="https://github.com/hakimel/reveal.js/graphs/contributors">reveal</a>
 						</small>
 						<br />
-						<small>2018-08-18</small>
+						<small>2018-08-26</small>
 					</p>
 				</section>
 
+<!-- section_2 -->
 				<section id="section_2">
 					<h2>Agenda</h2>
 					<ul>
@@ -59,6 +61,7 @@
 					</ul>
 				</section>
 
+<!-- section_3 -->
 				<section id="section_3">
 					<section>
 						<h2>Game Development</h2>
@@ -96,32 +99,285 @@
 						<h3> ....</h3>
 					</section>
 					<section>
-						<h3>A EOS Contract Game Sample</h3>
-						<p> Alchemy Furnace of Pomelo</p>
+						<h3>Blockchain Games</h3>
+						<p>Gods	Unchained (ETH)</p>
 						<p>
-							<img src="./images/game_1947.png">
+							<img src="./images/gods_unchained.png">
 						</p>						
-					</section>													
+					</section>
+
+					<section>
+						<h3>Blockchain Games</h3>
+						<p>Knights (EOS)</p>
+						<p>
+							<img src="./images/knights.png">
+						</p>						
+					</section>	
+					<section>
+						<h3>Architechture of Online Games</h3>
+						<p>
+							<img src="./images/game_svr.png">
+						</p>						
+					</section>																	
 				</section>
 
+<!-- section_4 -->
 				<section id="section_4">
 					<section>					
 						<h2>Contract DevEnv of EOS</h2>
+					</section>
+					<section>
+						<p>1. Build your own nodeos and toolchains .</p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+mkdir github.com/EOSIO  -p
+cd github.com/EOSIO/
+git clone https://github.com/EOSIO/eos --recursive
+
+cd eos
+sh eosio_build.sh
+						</code></pre></p>
+					</section>
+					<section>
+						<p> <img src="./images/build_succ.png"> </p>
+
+					</section>
+					<section>
+						<p> tools of eosio </p>
+						<p> <img src="./images/build_bin.png"> </p>
+
+					</section>
+					<section>
+						<p>2. Launch the test net with nodeos .</p>
+
+						<p> <pre><code> nodeos  # to generate default config file</code></pre> </p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+mkdir /home/nodeos
+mkdir /home/nodeos/config
+mkdir /home/nodeos/log
+mkdir /home/nodeos/data
+						</code></pre></p>
+						<p>copy "~/.local/share/eosio/nodeos/config/config.ini" to config directory </p>
+					</section>
+					<section>
+						<p>modify the config file </p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+enable-stale-production = true
+producer-name = eosio
+						</code></pre></p>	
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+plugin = eosio::chain_api_plugin
+plugin = eosio::history_api_plugin
+plugin = eosio::chain_plugin
+plugin = eosio::history_plugin
+plugin = eosio::net_plugin
+plugin = eosio::net_api_plugin
+						</code></pre></p>												
+					</section>
+					<section>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+nodeos --contracts-console  --config /home/eos/nodeos/config/config.ini
+  --data-dir /home/eos/nodeos/data
+						</code></pre></p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+2018-08-19T03:41:50.501 thread-0   producer_plugin.cpp:1295      produce_block        ] Produced block 0000000230037c59... #2 @ 2018-08-19T03:41:50.500 signed by eosio [trxs: 0, lib: 0, confirmed: 0]
+2018-08-19T03:41:51.000 thread-0   producer_plugin.cpp:1295      produce_block        ] Produced block 000000031933fd24... #3 @ 2018-08-19T03:41:51.000 signed by eosio [trxs: 0, lib: 2, confirmed: 0]
+2018-08-19T03:41:51.500 thread-0   producer_plugin.cpp:1295      produce_block        ] Produced block 000000044326e54f... #4 @ 2018-08-19T03:41:51.500 signed by eosio [trxs: 0, lib: 3, confirmed: 0]
+2018-08-19T03:41:52.000 thread-0   producer_plugin.cpp:1295      produce_block 
+						</code></pre></p>						
+					</section>
+
+					<section>
+						<p> 4. Deploy the system contruct </p>
+						<p> cleos tools </p>
+						<p> <img src="./images/cleos_help.png"> </p>
 					</section>	
+
+					<section>
+						<p> Deploy the BIOS contruct </p>
+						<p> <pre><code> nodeos  # to generate default config file</code></pre> </p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cleos wallet create -n eosio --file eosio.wallet
+cleos wallet import -n eosio --private-key signature-provider-private-key
+						</code></pre></p>
+
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cleos set contract eosio /home/eos/github.com/EOSIO/eos/build/contracts/eosio.bios/ -p eosio
+						</code></pre></p>						
+					</section>	
+
+					<section>
+						<p> Deploy the eosio.token contruct </p>
+						<p> <pre><code> nodeos  # to generate default config file</code></pre> </p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cleos create key --file eosio.token.key 
+cleos create account eosio eosio.token EOS8b21...9b4WH1 EOS8b21...9b4WH1
+cleos wallet import -n eosio.token --private-key 5J8k...fibJ
+						</code></pre></p>
+
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+set contract eosio.token /home/eos/github.com/EOSIO/eos/build/contracts/eosio.token -p eosio.token
+						</code></pre></p>						
+					</section>	
+
+					<section>
+						<p> 5. Build "hello" contract account and deploy it. </p>
+						<img src="./images/build_hello.png"> 
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cleos create key --file hello.key 
+cleos wallet create -n hello --file hello.wallet
+cleos create account eosio hello EOS8b21xxxrc9b4WH1 EOS8b21xxx9b4WH1
+cleos wallet import -n hello --private-key 5J8k...fibJ
+set contract hello ../hello -p hello
+						</code></pre></p>						
+					</section>
+					<section>
+
+						<img src="./images/hello_test.png"> 
+						
+					</section>																																									
 				</section>
+
+<!-- section_5 -->				
 
 				<section id="section_5">
 					<section>					
 						<h2>Basic Consept of <a href="https://github.com/EOSIO/eos/tree/master/contracts/eosiolib">eoslib</a></h2>
+					</section>
+
+					<section>	
+						<p>1. How dose a contract run.</p>
+						<p class="fragment"><img src="./images/cpp_wasm.png"> </p>
+						<p class="fragment"><img src="./images/wasm_jit.png"> </p>						
+					</section>
+
+					<section>	
+						<p>2. Push a action.</p>
+						<p class="fragment"><img src="./images/hello_test.png"></p>
+						<p class="fragment"><img src="./images/abi_hello.png"> </p>
+					</section>
+
+					<section>	
+						<p>3. EOSIO ABI.</p>
+						<p class="fragment"><img src="./images/eosio_abi.png"></p>
+					</section>
+
+					<section>	
+						<p>4. System of unit.</p>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cleos push action eosio.token transfer '{"from":"niubieos1111", "to":"finalnoobrd2", "quantity":"0.0050 EOS", "memo":"ref-"}' -p niubieos1111
+#"0.0050 EOS"
+						</code></pre></p>
+
+						<p class="fragment"> <pre><code class="hljs" style="word-wrap: break-word;">
+struct asset {
+
+      int64_t      amount;
+
+      symbol_type  symbol;
+...
+}
+						</code></pre></p>						
+					</section>
+
+					<section>	
+						<p>5. Print log.</p>
+						<p><img src="./images/code_hello.png"></p>
+						<p class="fragment"><img src="./images/code_print.jpg"></p>							
+					</section>
+
+					<section>	
+						<p>6. Storage with multi_index.</p>
+						<p><img src="./images/bill.png"></p>
 					</section>	
+					<section>	
+						<p class="fragment"><img src="./images/test_lol.png"></p>
+						<p class="fragment"><img src="./images/bill_table.png"></p>							
+					</section>						
+					<section>	
+						<p>7. Storage with singleton.</p>
+						<p><img src="./images/game_info.png"></p>
+						<p class="fragment"><img src="./images/game_info_usage.png"></p>							
+					</section>																				
+
 				</section>				
 
+<!-- section_6 -->	
 				<section id="section_6">
 					<section>					
 						<h2>Contract Development Sample</h2>
+					</section>
+
+					<section>					
+						<h3>Demo</h3>
+						<p><img src="./images/youzi_1.jpeg"><img src="./images/youzi_2.jpeg"></p>						
+					</section>
+
+					<section>					
+						<h3>H5 Game with EOS as backend</h3>
+						<p><img src="./images/laya_eosjs.png"></p>						
+					</section>					
+
+					<section>					
+						<p>1. DB design </p>
+						<ul>
+							<li>pooldb: storage all 101 position</li>
+							<li>bill: storage bill for a player</li>
+							<li>billboard: storage winner infomation for each round</li>
+						</ul>						
+					</section>
+					<section>					
+						<p><img src="./images/pooldb.png"></p>	
+					</section>					
+					<section>					
+						<p><img src="./images/bill.png"></p>	
 					</section>	
+					<section>					
+						<p><img src="./images/billboard.png"></p>	
+					</section>																
+
+					<section>					
+						<p>3. API design </p>
+						<ul>
+							<li>Transfer: one EOS per ticket</li>
+							<li>Lottery: not a action ,trigger when 101 ticket</li>
+						</ul>						
+					</section>
+
+					<section>					
+							<p><img src="./images/transfer.png"></p>									
+					</section>
+					<section>					
+							<p><img src="./images/bet.png"></p>						
+					</section>	
+					<section>					
+							<p><img src="./images/update.png"></p>						
+					</section>	
+					<section>					
+							<p><img src="./images/lotte.png"></p>						
+					</section>	
+					<section>					
+							<p><img src="./images/award.png"></p>						
+					</section>	
+
+					<section>					
+						<p>4. Frontend: UI layer </p>
+						<ul>
+							<li>Table: DB(Table) is the driver</li>
+							<li>JS API: query the db with Javascript API(HTTP API)</li>
+							<li>UI: display game core with Javascript and H5</li>
+						</ul>						
+					</section>
+					<section>					
+						<p><img src="./images/laya_ide.png"></p>	
+					</section>	
+					<section>					
+						<p><img src="./images/eosjs_demo.png"></p>	
+					</section>											
+
+
 				</section>
 
+<!-- section_end -->
 				<section id="section_end"style="text-align: left;">
 					<h1>THE END</h1>
 					<h1>THANKS!</h1>

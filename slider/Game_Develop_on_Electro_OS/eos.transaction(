@@ -1,0 +1,26 @@
+eos.transaction(
+  {
+    // ...headers,
+    // context_free_actions: [],
+    actions: [
+      {
+        account: 'eosio.token',
+        name: 'transfer',
+        authorization: [{
+          actor: 'cz',
+          permission: 'active'
+        }],
+        data: {
+          from: 'cz',
+          to: 'lol',
+          quantity: '1.0000 EOS',
+          memo: ''
+        }
+      }
+    ]
+  }
+  // config -- example: {broadcast: false, sign: true}
+)
+
+
+eos.getTableRows("json", "lol", "lol", "bill", "total_amount","0", "-1", 10, "i64", "1")
