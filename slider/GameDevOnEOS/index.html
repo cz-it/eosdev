@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GameDev on EOS</title>
+
+		<meta name="description" content="A Share of Game Develop on EOS">
+		<meta name="author" content="CZ">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/css/theme/black.css" id="theme">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/reveal.js-3.7.0/lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/reveal.js-3.7.0/css/print/pdf.css' : '../reveal/reveal.js-3.7.0/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="section_1">
+					<h1>Game Develop </h1> 
+					<h2>on EOS</h2>
+					<p>
+						<small>Created by <a href="https://www.jianshu.com/u/665decba58c9">CZ</a> with <a href="https://github.com/hakimel/reveal.js/graphs/contributors">reveal</a>
+						</small>
+						<br />
+						<small>2018-12-02</small>
+					</p>
+				</section>
+				<section id="section_2">
+					<h1>C Z </h1> 
+					<p>Developer of <a href="http://gobangmaster.cdn.bcebos.com" >GobangMaster(连珠大师）</a></p>
+					<p>Developer of <a href="http://pomelostove.dgame4eos.fun">PomeloStove(柚子丹炉）</a></p>
+					<p>Creator of FO's BP: foshenzhenbp</p>
+					<p>Organiser of EOS NanShan DevGroup</p>
+				</section>				
+
+				<section id="section_2">
+					<h2>Agenda</h2>
+					<ul>
+						<li>Game Development</li>
+						<li>Contract Development Toolkit of EOS</li>
+						<li>Architecture of GameDev on EOS</li>
+						<li>Security of DAPPs</li>
+					</ul>
+				</section>
+<!-- section_3 -->
+				<section id="section_3">
+					<section>
+						<h2>Game Development</h2>
+					</section>
+					<section>
+						<p>1. The first recorded electronic game.</p>
+						<p> (before the history. 1948)</p>
+						<p>
+							<img src="./images/ttt_play.gif">
+						</p>
+						<p>
+							Tic-Tac-Toe 
+						</p>
+					</section>
+					<section>
+						<p class="p_left">1. UI System .</p>						
+						<p class="p_left">2. Game Playe Core (FPS/MOBA/RPG/MMO ...) .</p>
+						<p class="p_left">3. Archive System （Account/Bag/Mail ...) .</p>
+					</section>
+					<section>
+						<p>EOS Games - Dice</p>
+						<p><a href="https://eosfaker.com/"> https://eosfaker.com/</a></p>
+						<p>
+							<img src="./images/game_dice.png">
+						</p>
+					</section>					
+					<section>
+						<p>EOS Games - ShiShiCai</p>
+						<p><a href="https://eosplay.com/lottery">https://eosplay.com/lottery </a></p>
+						<p>
+							<img src="./images/game_shishicai.png">
+						</p>
+					</section>
+					<section>
+						<p>EOS Games - XPet</p>
+						<p><a href="https://xpet.io/transaction.html">https://xpet.io/transaction.html </a></p>
+						<p>
+							<img src="./images/game_xpet.png">
+						</p>
+					</section>					
+					<section>
+						<p>EOS DApp Development History</p>
+						<p>
+							<img src="./images/eos_dapps_time.png">
+						</p>
+					</section>						
+					<section>
+						<p>
+							<img src="./images/games_on_tp.jpeg">
+						</p>
+					</section>					
+					<section>
+						<h3>Architechture of Online Games</h3>
+						<p>
+							<img src="./images/game_svr.png">
+						</p>						
+					</section>	
+														
+
+				</section>	
+
+<!-- section_4 -->
+				<section id="section_4">
+					<section>
+						<h2>Contract Development Toolkit of EOS</h2>
+					</section>
+					<section>
+						<h3>What is CDT ?</h3>
+						<p>
+							<img src="./images/github_cdt.png">
+						</p>						
+					</section>	
+					<section>
+						<h3>Install</h3>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+#Mac
+$ brew tap eosio/eosio.cdt
+$ brew install eosio.cdt
+
+#Ubuntu/Debian
+$ wget https://github.com/eosio/eosio.cdt/releases/download/v1.4.1/eosio.cdt-1.4.1.x86_64.deb
+$ sudo apt install ./eosio.cdt-1.4.1.x86_64.deb
+
+#Fedora/CentOS
+$ wget https://github.com/eosio/eosio.cdt/releases/download/v1.4.1/eosio.cdt-fedora-1.4.1.x86_64-0.x86_64.rpm
+$ sudo yum install ./eosio.cdt-fedora-1.4.1.x86_64-0.x86_64.rpm
+
+#Build yourself
+$ git clone --recursive https://github.com/eosio/eosio.cdt
+$ cd eosio.cdt
+$ ./build.sh
+$ sudo ./install.sh
+						</code></pre></p>						
+					</section>
+					<section>
+						<h3>Hello World</h3>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+$ git clone --recursive https://github.com/eosio/eosio.cdt
+$ cd eosio.cdt
+$ cd ./examples/hello							
+
+$ cmake CMakeLists.txt
+$ make
+
+						</code></pre></p>
+					</section>
+					<section>						
+						<p>
+							<img src="./images/hello_world.png">
+						</p>
+					</section>
+					<section>
+						<h3>Begin with CMake</h3>
+						<p>
+							<img src="./images/fo_doc.png">
+						</p>						
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+cmake_minimum_required(VERSION 3.5)
+project(template_example VERSION 1.0.0)
+
+find_package(eosio.cdt)
+
+# add contract
+add_contract( <contract name>, <target name>, <source files....> )
+						</code></pre></p>
+					</section>
+
+					<section>
+						<h3>Development Toolchains</h3>
+						<p>
+							<img src="./images/fo_doc.png">
+						</p>	
+						<p>
+							<img src="./images/toolchains.png">
+						</p>
+					</section>	
+
+					<section>
+						
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+# generate wasm file							
+$ eosio-cpp -abigen hello.cpp -o hello.wasm
+
+# generate abi file
+$ eosio-abigen hello.cpp --contract=hello --output=hello.abi
+						</code></pre></p>
+					</section>
+					<section>
+						<h3>ABI</h3>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+// this is the C++11 and greater style attribute
+[[eosio::action]]
+void testa( name n ) {
+   // do something
+}
+
+// this is the GNU style attribute, this can be used in C code and prior to C++ 11
+__attribute__((eosio_action))
+void testa( name n ){
+   // do something
+}
+
+struct [[eosio::action]] testa {
+   name n;
+   EOSLIB_SERIALIZE( testa, (n) )
+};
+
+struct __attribute__((eosio_action)) testa {
+   name n;
+   EOSLIB_SERIALIZE( testa, (n) )
+};
+						</code></pre></p>
+					</section>						
+
+					<section>
+						<h3>SDK</h3>
+						<p>
+							<img src="./images/eoslib.png">
+						</p>
+					</section>	
+					<section>	
+						<p>1. System of unit.</p>
+						<p > <pre><code class="hljs" style="word-wrap: break-word;">
+cleos push action eosio.token transfer '{"from":"niubieos1111", "to":"finalnoobrd2", "quantity":"0.0050 EOS", "memo":"ref-"}' -p niubieos1111
+#"0.0050 EOS"
+						</code></pre></p>
+
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+struct asset {
+
+      int64_t      amount;
+
+      symbol_type  symbol;
+...
+}
+						</code></pre></p>						
+					</section>
+
+					<section>	
+						<p>2. Print log.</p>
+						<p><img src="./images/code_hello.png"></p>
+						<p class="fragment"><img src="./images/code_print.jpg"></p>							
+					</section>
+
+					<section>	
+						<p>3. Storage with multi_index.</p>
+						<p><img src="./images/bill.png"></p>
+					</section>	
+					<section>	
+						<p class="fragment"><img src="./images/test_lol.png"></p>
+						<p class="fragment"><img src="./images/bill_table.png"></p>							
+					</section>						
+					<section>	
+						<p>4. Storage with singleton.</p>
+						<p><img src="./images/game_info.png"></p>
+						<p class="fragment"><img src="./images/game_info_usage.png"></p>							
+					</section>																																			
+				</section>
+
+<!-- section_5 -->
+				<section id="section_5">
+					<section>
+						<h2>Architecture of GameDev on EOS</h2>
+					</section>
+
+					<section>					
+						<h3>H5 Game with EOS as backend</h3>
+						<p><img src="./images/laya_eosjs.png"></p>						
+					</section>
+
+					<section>					
+						<h3>Contract Structure</h3>
+						<p><img src="./images/pomelostove.png"></p>						
+					</section>	
+					<section>					
+						<p><img src="./images/apply.png"></p>						
+					</section>	
+					<section>					
+						<p>1. DB design </p>
+						<ul>
+							<li>game: storage game info</li>
+							<li>player: storage bill for a player</li>
+							<li>award: storage winner infomation for each round</li>
+						</ul>						
+					</section>
+					<section>					
+						<p><img src="./images/tbl_game.png"></p>	
+					</section>					
+					<section>					
+						<p><img src="./images/tbl_player.png"></p>	
+					</section>	
+					<section>					
+						<p><img src="./images/tbl_award.png"></p>	
+					</section>
+
+					<section>					
+						<p>2. API design </p>
+						<ul>
+							<li>Transfer: one EOS per ticket</li>
+							<li>Clear: clear table</li>
+						</ul>	
+						<p><img src="./images/action.png"></p>					
+					</section>
+					
+					<section>					
+						<p>3. Frontend: UI layer </p>
+						<ul>
+							<li>Table: DB(Table) is the driver</li>
+							<li>JS API: query the db with Javascript API(HTTP API)</li>
+							<li>UI: display game core with Javascript and H5</li>
+						</ul>						
+					</section>
+					<section>					
+						<p><img src="./images/laya_ide.png"></p>	
+					</section>	
+					<section>					
+						<p><img src="./images/eosjs_demo.png"></p>	
+					</section>					
+
+				</section>
+
+<!-- section_6 -->
+				<section id="section_6">
+					<section>
+						<h2>Security of DAPPs</h2>
+					</section>
+					<section>
+						<h2>Some Articles</h2>
+						<p class="p_left"><a href="https://mp.weixin.qq.com/s/WTiwaIbB7N2VDKKgcXo0Fg">探究随机数漏洞背后的技术原理：EOS.WIN竞猜游戏是如何被攻破的？</a></p>
+						<p class="p_left"><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx06e5eac480a6d984&redirect_uri=https%3A%2F%2Fwx.zsxq.com%2Fmweb%2Fviews%2Fwxlogin%2Flogin.html&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect">知名 DApp EOSDice 由于随机数问题再次被黑</a></p>
+						<p class="p_left"><a href="https://bihu.com/article/1827909?from=groupmessage&isappinstalled=0">EOS主网上线以来智能合约攻击方式汇总</a></p>
+					</section>
+					<section>
+						<h2>EOS not from eos.token</h2>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+void minority_game::transfer(account_name from, account_name to, asset quantity, std::string memo) {
+    if (from == _self || to != _self) {
+        return;
+    }
+    require_auth(from);
+						</code></pre></p>
+						<p>
+							<img src="./images/eosflare_eosdice.png">
+						</p>												
+					</section>				
+					<section>
+						<h2>Recipient from other contract</h2>
+
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+void token::transfer( name    from,
+                      name    to,
+                      asset   quantity,
+                      string  memo )
+{
+    eosio_assert( from != to, "cannot transfer to self" );
+    require_auth( from );
+    eosio_assert( is_account( to ), "to account does not exist");
+    auto sym = quantity.symbol.code();
+    stats statstable( _self, sym.raw() );
+    const auto& st = statstable.get( sym.raw() );
+
+    require_recipient( from );
+    require_recipient( to );
+						</code></pre></p>	
+					</section>
+					<section>
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+    minority_game thiscontract(receiver);
+
+    if ((code == N(eosio.token)) && (action == N(transfer))) {
+        execute_action(&thiscontract, &minority_game::transfer);
+        return;
+    }
+						</code></pre></p>						
+						<p>
+							<img src="./images/eosflare_transfer.png">
+						</p>
+
+					</section>
+					<section>
+						<p> No EOS to game contrace </p>
+						<p>
+							<img src="./images/eos_recipient.png">
+						</p>
+					</section>
+					<section>						
+						<p>
+							<img src="./images/eosflare_recipient.png">
+						</p>
+					</section>
+					<section>
+						<h2>No real random</h2>
+
+						<p>Ranome code	</p>	
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+tapos_block_num = ref_block_num & 0xffff
+tapos_block_prefix = get block(ref_block_num).ref_block_prefix
+						</code></pre></p>												
+						<p>
+							<img src="./images/random_code.jpg">
+						</p>
+					</section>	
+
+					<section>
+						<p>Don't OpenSource?	</p>	
+						<p> 	
+							<img src="./images/random_wasm1.jpg">
+						</p>										
+						<p>
+							<img src="./images/random_wasm2.jpg">
+						</p>
+					</section>										
+
+					<section>
+						<h2>Fallback transaction</h2>
+	
+						<p> 	
+							<img src="./images/fallback_dice.png">
+						</p>										
+						<p> <pre><code class="hljs" style="word-wrap: break-word;">
+eosio_assert(0, "assert");
+						</code></pre></p>	
+					</section>						
+
+				</section>												
+
+<!-- section_end -->
+				<section id="section_end"style="text-align: left;">
+					<h1>THE END</h1>
+					<h1>THANKS!</h1>
+					<p style="float:right;">
+						<span><a href="https://www.jianshu.com/u/665decba58c9">Blog</a></span> |
+						<span><a href="mailto:cz_eos@163.com">Mail</a></span>
+					</p>					
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal/reveal.js-3.7.0/lib/js/head.min.js"></script>
+		<script src="../reveal/reveal.js-3.7.0/js/reveal.js"></script>
+		<script src="js/index.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal/reveal.js-3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/search/search.js', async: true },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal/reveal.js-3.7.0/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
